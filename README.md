@@ -2,6 +2,8 @@
 
 This is an **Android Product Online Shopping Application** designed to provide users with an intuitive experience for browsing and purchasing products. Built using **Java**, this app incorporates best practices in **Clean Architecture**, **MVVM Design Pattern**, and **Dependency Injection** with **Dagger 2**. The app also includes **Retrofit** for network requests and **Room** for local data persistence.
 
+![login](https://github.com/user-attachments/assets/2e81bc6e-328d-4290-912b-b2a37e43f5b9) ![home](https://github.com/user-attachments/assets/873f5765-1a14-4dad-a646-85f5e96c9f37) 
+
 ## Table of Contents
 
 - [Features](#features)
