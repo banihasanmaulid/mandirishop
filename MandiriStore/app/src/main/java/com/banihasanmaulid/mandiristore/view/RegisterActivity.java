@@ -2,11 +2,8 @@ package com.banihasanmaulid.mandiristore.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,19 +13,14 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.banihasanmaulid.mandiristore.R;
-import com.banihasanmaulid.mandiristore.data.api.request.LoginRequest;
-import com.banihasanmaulid.mandiristore.data.api.request.UserRequest;
-import com.banihasanmaulid.mandiristore.data.api.response.UserResponse;
 import com.banihasanmaulid.mandiristore.data.local.AppDatabase;
 import com.banihasanmaulid.mandiristore.data.repository.ProductRepository;
 import com.banihasanmaulid.mandiristore.data.repository.UserRepository;
 import com.banihasanmaulid.mandiristore.di.MyApplication;
 import com.banihasanmaulid.mandiristore.helpers.Utils;
 import com.banihasanmaulid.mandiristore.model.Users;
-import com.banihasanmaulid.mandiristore.view.adapter.CartAdapter;
 import com.banihasanmaulid.mandiristore.viewmodel.RegisterViewModel;
 import com.banihasanmaulid.mandiristore.viewmodel.ViewModelFactory;
 
@@ -75,14 +67,6 @@ public class RegisterActivity extends AppCompatActivity {
             if (isValid){
                 localRegister(v, users);
             }
-
-            /*registerViewModel.register(new UserRequest(username, password)).observe(this, response -> {
-                if (response != null) {
-                    Log.d(TAG, "Success Register");
-                } else {
-                    Log.e(TAG, "Failed Register");
-                }
-            });*/
         });
 
         backButton.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());

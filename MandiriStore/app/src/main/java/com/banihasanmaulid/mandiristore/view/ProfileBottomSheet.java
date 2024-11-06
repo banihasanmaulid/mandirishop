@@ -43,7 +43,6 @@ public class ProfileBottomSheet extends BottomSheetDialogFragment {
             v.getContext().startActivity(intent);
 
             saveRememberMe(v.getContext(), false);
-//            closeBottomSheet();
         });
     }
 
