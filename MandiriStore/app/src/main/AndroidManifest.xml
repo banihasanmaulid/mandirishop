@@ -16,9 +16,6 @@
         android:theme="@style/Theme.MandiriStore"
         tools:targetApi="31" >
         <activity
-            android:name=".view.ProfileBottomSheet"
-            android:exported="false" />
-        <activity
             android:name=".view.RegisterActivity"
             android:exported="false" />
         <activity
