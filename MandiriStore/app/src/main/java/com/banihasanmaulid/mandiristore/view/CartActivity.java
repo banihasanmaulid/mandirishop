@@ -2,7 +2,6 @@ package com.banihasanmaulid.mandiristore.view;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -84,7 +83,7 @@ public class CartActivity extends AppCompatActivity {
     private void showCheckoutDialog() {
         List<Product> selectedProducts = cartAdapter.getSelectedProducts();
         if (selectedProducts.isEmpty()) {
-            Toast.makeText(this, "Pilih setidaknya satu produk", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Select at least one product", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -96,12 +95,12 @@ public class CartActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Checkout")
-                .setMessage("Jumlah item: " + itemCount + "\nTotal harga: $" + totalPrice)
-                .setPositiveButton("Bayar", (dialog, which) -> {
-                    Toast.makeText(this, "Pembayaran berhasil!", Toast.LENGTH_SHORT).show();
+                .setMessage("Total Items: " + itemCount + "\nTotal Amount: $" + totalPrice)
+                .setPositiveButton("Pay", (dialog, which) -> {
+                    Toast.makeText(this, "Payment Successfully!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 })
-                .setNegativeButton("Batalkan", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 }

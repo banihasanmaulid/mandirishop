@@ -1,9 +1,7 @@
 package com.banihasanmaulid.mandiristore.view;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -78,12 +76,6 @@ public class HomeActivity extends AppCompatActivity {
         buttonProfile.setOnClickListener(view -> {
             ProfileBottomSheet profileBottomSheet = new ProfileBottomSheet();
             profileBottomSheet.show(getSupportFragmentManager(), profileBottomSheet.getTag());
-
-//            Intent intent = new Intent(view.getContext(), LoginActivity.class);
-//            view.getContext().startActivity(intent);
-//            finish();
-//
-//            saveRememberMe(this, false);
         });
 
         buttonCart.setOnClickListener(view -> {
@@ -152,18 +144,9 @@ public class HomeActivity extends AppCompatActivity {
                 productList.addAll(response);
                 productAdapter.notifyDataSetChanged();
                 Log.d(TAG, "Success get products By Category");
-                Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show();
             } else {
                 Log.e(TAG, "Failed get products By Category");
             }
         });
-    }
-
-    public void saveRememberMe(Context context, boolean value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isUserLoggedIn", value);
-
-        editor.apply();
     }
 }

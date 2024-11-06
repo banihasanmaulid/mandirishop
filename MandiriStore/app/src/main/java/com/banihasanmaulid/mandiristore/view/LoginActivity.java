@@ -22,7 +22,6 @@ import com.banihasanmaulid.mandiristore.data.repository.ProductRepository;
 import com.banihasanmaulid.mandiristore.data.repository.UserRepository;
 import com.banihasanmaulid.mandiristore.di.MyApplication;
 import com.banihasanmaulid.mandiristore.helpers.Utils;
-import com.banihasanmaulid.mandiristore.model.Product;
 import com.banihasanmaulid.mandiristore.model.Users;
 import com.banihasanmaulid.mandiristore.viewmodel.LoginViewModel;
 import com.banihasanmaulid.mandiristore.viewmodel.ViewModelFactory;

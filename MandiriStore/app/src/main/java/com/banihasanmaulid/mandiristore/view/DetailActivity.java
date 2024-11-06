@@ -1,6 +1,5 @@
 package com.banihasanmaulid.mandiristore.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
