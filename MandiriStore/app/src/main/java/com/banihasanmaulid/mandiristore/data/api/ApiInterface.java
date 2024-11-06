@@ -1,5 +1,9 @@
 package com.banihasanmaulid.mandiristore.data.api;
 
+import com.banihasanmaulid.mandiristore.data.api.request.LoginRequest;
+import com.banihasanmaulid.mandiristore.data.api.request.UserRequest;
+import com.banihasanmaulid.mandiristore.data.api.response.LoginResponse;
+import com.banihasanmaulid.mandiristore.data.api.response.UserResponse;
 import com.banihasanmaulid.mandiristore.model.Product;
 
 import java.util.List;
@@ -18,12 +22,8 @@ import retrofit2.http.Path;
  */
 public interface ApiInterface {
 
-    @FormUrlEncoded
     @POST("login")
-    Call<LoginResponse> login(@Field("username") String username,
-                              @Field("password") String password);
-    @POST("login")
-    Call<LoginResponse> login2(@Body LoginRequest loginRequest);
+    Call<LoginResponse> login(@Body LoginRequest loginRequest);
 
     @GET("products")
     Call<List<Product>> getProducts();
@@ -38,6 +38,10 @@ public interface ApiInterface {
     @GET("products/{id}")
     Call<Product> getProductById(@Path("id") int id);
 
-//    @POST("users")
-//    Call<UserResponse> registerUser(@Body UserRequest userRequest);
+    @POST("users")
+    Call<UserResponse> registerUser(@Body UserRequest userRequest);
+
+    @FormUrlEncoded
+    @POST("auth/login")
+    Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
 }

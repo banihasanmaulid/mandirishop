@@ -3,44 +3,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/productImage"
+    <RelativeLayout
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:layout_height="56dp"
+        android:background="@drawable/background"
+        android:padding="8dp">
 
-    <TextView
-        android:id="@+id/productName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="#2A3956"
-        android:layout_marginTop="16dp" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
-    <TextView
-        android:id="@+id/productCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#A0A8B8"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="8dp" />
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_back"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/productDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#A0A8B8"
-        android:layout_marginTop="8dp" />
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="#2A3956"
-        android:layout_marginTop="8dp" />
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#2A3956"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/productCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#A0A8B8"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2A3956"
+            android:padding="8dp"
+            android:paddingHorizontal="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/productDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#A0A8B8"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
 </LinearLayout>

@@ -26,6 +26,8 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
             return (T) new LoginViewModel(userRepository);
         } else if (modelClass.isAssignableFrom(HomeViewModel.class)) {
             return (T) new HomeViewModel(productRepository);
+        } else if (modelClass.isAssignableFrom(RegisterViewModel.class)) {
+            return (T) new RegisterViewModel(userRepository);
         }
         throw new IllegalArgumentException("Unknown ViewModel class");
     }

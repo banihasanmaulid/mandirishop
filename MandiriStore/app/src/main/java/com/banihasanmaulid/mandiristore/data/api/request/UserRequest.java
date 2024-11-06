@@ -1,14 +1,14 @@
-package com.banihasanmaulid.mandiristore.data.api;
+package com.banihasanmaulid.mandiristore.data.api.request;
 
 /**
  * Copyright (c) 2024 Mandiri-Store. All rights reserved. <br>
- * Created by {@author} <b>Bani Hasan Maulid</b> on {@since} <b>11/5/2024</b>
+ * Created by {@author} <b>Bani Hasan Maulid</b> on {@since} <b>11/6/2024</b>
  */
-public class LoginRequest {
+public class UserRequest {
     private String username;
     private String password;
 
-    public LoginRequest(String username, String password) {
+    public UserRequest(String username, String password) {
         this.username = username;
         this.password = password;
     }

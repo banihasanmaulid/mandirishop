@@ -48,6 +48,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.productName.setText(product.getTitle());
         holder.productCategory.setText(product.getCategory());
         holder.productDescription.setText(product.getDescription());
+        holder.price.setText(String.format("%s %s","$", product.getPrice()));
 
         Glide.with(holder.itemView.getContext())
                 .load(product.getImage())
@@ -67,12 +68,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 Product existingProduct = db.productDao().getProductByTitle(product.getTitle());
                 if (existingProduct != null) {
                     ((Activity) v.getContext()).runOnUiThread(() ->
-                            Toast.makeText(v.getContext(), "Produk sudah ada di keranjang", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(v.getContext(), "Product is already in the cart", Toast.LENGTH_SHORT).show()
                     );
                 } else {
                     db.productDao().insertProduct(product);
                     ((Activity) v.getContext()).runOnUiThread(() ->
-                        Toast.makeText(v.getContext(), "Produk berhasil ditambahkan ke keranjang", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(v.getContext(), "Product successfully added to cart", Toast.LENGTH_SHORT).show()
                     );
 
                     Intent intent = new Intent(v.getContext(), CartActivity.class);

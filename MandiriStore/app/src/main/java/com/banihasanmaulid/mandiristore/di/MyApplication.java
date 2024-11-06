@@ -1,10 +1,6 @@
-package com.banihasanmaulid.mandiristore.view;
+package com.banihasanmaulid.mandiristore.di;
 
 import android.app.Application;
-
-import com.banihasanmaulid.mandiristore.di.AppComponent;
-import com.banihasanmaulid.mandiristore.di.AppModule;
-import com.banihasanmaulid.mandiristore.di.DaggerAppComponent;
 
 /**
  * Copyright (c) 2024 Mandiri-Store. All rights reserved. <br>

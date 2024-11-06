@@ -8,10 +8,17 @@
     tools:context=".view.LoginActivity">
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
+
+        <ImageView
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/logo_wtihout_bg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
 
         <EditText
             android:id="@+id/username"
@@ -26,11 +33,61 @@
             android:hint="Password"
             android:inputType="textPassword"/>
 
+        <LinearLayout
+            android:id="@+id/layRememberMe"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:layout_gravity="left"
+                android:id="@+id/cbCheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:gravity="center|left"
+                android:textSize="15dp"
+                android:text="Remember Me"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
         <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"/>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="right|center"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Belum Memiliki Akun? daftar "/>
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:id="@+id/layRegister"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:gravity="left|center"
+                    android:textStyle="bold"
+                    android:id="@+id/register"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="disini"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

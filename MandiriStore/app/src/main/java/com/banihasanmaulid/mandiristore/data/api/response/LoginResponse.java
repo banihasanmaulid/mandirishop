@@ -1,4 +1,4 @@
-package com.banihasanmaulid.mandiristore.data.api;
+package com.banihasanmaulid.mandiristore.data.api.response;
 
 /**
  * Copyright (c) 2024 Mandiri-Store. All rights reserved. <br>

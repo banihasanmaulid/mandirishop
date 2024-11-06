@@ -4,12 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.banihasanmaulid.mandiristore.data.api.ApiInterface;
-import com.banihasanmaulid.mandiristore.data.api.LoginRequest;
-import com.banihasanmaulid.mandiristore.data.api.LoginResponse;
-import com.banihasanmaulid.mandiristore.model.Product;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.banihasanmaulid.mandiristore.data.api.request.LoginRequest;
+import com.banihasanmaulid.mandiristore.data.api.request.UserRequest;
+import com.banihasanmaulid.mandiristore.data.api.response.LoginResponse;
+import com.banihasanmaulid.mandiristore.data.api.response.UserResponse;
 
 import javax.inject.Inject;
 
@@ -33,13 +31,12 @@ public class UserRepository {
         MutableLiveData<LoginResponse> data = new MutableLiveData<>();
         LoginRequest request = new LoginRequest(username, password);
 
-        apiInterface.login2(request).enqueue(new Callback<LoginResponse>() {
+        apiInterface.loginUser(request).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     data.postValue(response.body());
                 } else {
-                    // Bisa menambahkan penanganan error di sini
                     data.postValue(null);
                 }
             }
@@ -47,7 +44,6 @@ public class UserRepository {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 data.postValue(null);
-                // Tambahkan log untuk memudahkan debug jika diperlukan
                 t.printStackTrace();
             }
         });
@@ -55,13 +51,11 @@ public class UserRepository {
         return data;
     }
 
-    public LiveData<List<Product>> getProducts() {
-        MutableLiveData<List<Product>> data = new MutableLiveData<>();
-
-        List<Product> products = new ArrayList<>();
-        apiInterface.getProducts().enqueue(new Callback<List<Product>>() {
+    public LiveData<UserResponse> register(UserRequest request) {
+        MutableLiveData<UserResponse> data = new MutableLiveData<>();
+        apiInterface.registerUser(request).enqueue(new Callback<UserResponse>() {
             @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     data.postValue(response.body());
                 } else {
@@ -70,7 +64,7 @@ public class UserRepository {
             }
 
             @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
+            public void onFailure(Call<UserResponse> call, Throwable t) {
                 data.postValue(null);
                 t.printStackTrace();
             }

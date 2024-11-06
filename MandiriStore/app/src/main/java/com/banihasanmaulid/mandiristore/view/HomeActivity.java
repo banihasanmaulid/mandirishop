@@ -1,10 +1,13 @@
 package com.banihasanmaulid.mandiristore.view;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -18,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.banihasanmaulid.mandiristore.R;
+import com.banihasanmaulid.mandiristore.di.MyApplication;
 import com.banihasanmaulid.mandiristore.model.Product;
 import com.banihasanmaulid.mandiristore.data.repository.ProductRepository;
 import com.banihasanmaulid.mandiristore.data.repository.UserRepository;
@@ -31,6 +35,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 public class HomeActivity extends AppCompatActivity {
+    public static final String TAG = HomeActivity.class.getSimpleName();
+
     @Inject
     UserRepository userRepository;
 
@@ -40,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
     private HomeViewModel homeViewModel;
     private RecyclerView recyclerView;
     private Spinner categoryProduct;
-    private ImageView buttonCart;
+    private ImageView buttonCart, buttonProfile;
     private ProductAdapter productAdapter;
     private final List<Product> productList = new ArrayList<>();;
     private final List<String> categoriesList = new ArrayList<>();;
@@ -51,6 +57,7 @@ public class HomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
         ((MyApplication) getApplication()).getAppComponent().inject(this);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         init();
     }
@@ -62,10 +69,22 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         categoryProduct = findViewById(R.id.categoryProduct);
         buttonCart = findViewById(R.id.cart);
+        buttonProfile = findViewById(R.id.btnProfile);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         setAdapter();
         setData();
+
+        buttonProfile.setOnClickListener(view -> {
+            ProfileBottomSheet profileBottomSheet = new ProfileBottomSheet();
+            profileBottomSheet.show(getSupportFragmentManager(), profileBottomSheet.getTag());
+
+//            Intent intent = new Intent(view.getContext(), LoginActivity.class);
+//            view.getContext().startActivity(intent);
+//            finish();
+//
+//            saveRememberMe(this, false);
+        });
 
         buttonCart.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), CartActivity.class);
@@ -90,9 +109,9 @@ public class HomeActivity extends AppCompatActivity {
                 productList.clear();
                 productList.addAll(response);
                 productAdapter.notifyDataSetChanged();
-                Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Success get products");
             } else {
-                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Failed get products");
             }
         });
     }
@@ -119,9 +138,9 @@ public class HomeActivity extends AppCompatActivity {
                     public void onNothingSelected(AdapterView<?> parent) {
                     }
                 });
-                Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Success get categories");
             } else {
-                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Failed get products");
             }
         });
     }
@@ -132,10 +151,19 @@ public class HomeActivity extends AppCompatActivity {
                 productList.clear();
                 productList.addAll(response);
                 productAdapter.notifyDataSetChanged();
+                Log.d(TAG, "Success get products By Category");
                 Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Failed get products By Category");
             }
         });
+    }
+
+    public void saveRememberMe(Context context, boolean value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isUserLoggedIn", value);
+
+        editor.apply();
     }
 }

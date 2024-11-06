@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.banihasanmaulid.mandiristore.data.api.request.UserRequest;
-import com.banihasanmaulid.mandiristore.data.api.response.LoginResponse;
 import com.banihasanmaulid.mandiristore.data.api.response.UserResponse;
 import com.banihasanmaulid.mandiristore.data.repository.UserRepository;
 
@@ -12,18 +11,17 @@ import javax.inject.Inject;
 
 /**
  * Copyright (c) 2024 Mandiri-Store. All rights reserved. <br>
- * Created by {@author} <b>Bani Hasan Maulid</b> on {@since} <b>11/5/2024</b>
+ * Created by {@author} <b>Bani Hasan Maulid</b> on {@since} <b>11/6/2024</b>
  */
-public class LoginViewModel extends ViewModel {
+public class RegisterViewModel extends ViewModel {
     private final UserRepository userRepository;
 
     @Inject
-    public LoginViewModel(UserRepository userRepository) {
+    public RegisterViewModel(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public LiveData<LoginResponse> login(String username, String password) {
-        return userRepository.login(username, password);
+    public LiveData<UserResponse> register(UserRequest request) {
+        return userRepository.register(request);
     }
-
 }

@@ -2,6 +2,7 @@ package com.banihasanmaulid.mandiristore.di;
 
 import com.banihasanmaulid.mandiristore.view.HomeActivity;
 import com.banihasanmaulid.mandiristore.view.LoginActivity;
+import com.banihasanmaulid.mandiristore.view.RegisterActivity;
 
 import javax.inject.Singleton;
 
@@ -15,5 +16,6 @@ import dagger.Component;
 @Component(modules = {AppModule.class})
 public interface AppComponent {
     void inject(LoginActivity loginActivity);
-    void inject(HomeActivity loginActivity);
+    void inject(HomeActivity homeActivity);
+    void inject(RegisterActivity registerActivity);
 }

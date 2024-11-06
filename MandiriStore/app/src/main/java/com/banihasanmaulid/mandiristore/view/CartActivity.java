@@ -28,6 +28,7 @@ public class CartActivity extends AppCompatActivity {
     private List<Product> cartList;
     private TextView totalAmount, totalItem, selectedItem;
     private Button checkout;
+    private ImageView btnback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class CartActivity extends AppCompatActivity {
         totalAmount = findViewById(R.id.totalAmount);
         totalItem = findViewById(R.id.totalItem);
         selectedItem = findViewById(R.id.selectedItem);
+        btnback = findViewById(R.id.back);
         checkout = findViewById(R.id.checkout);
         cartList = new ArrayList<>();
 
@@ -65,6 +67,7 @@ public class CartActivity extends AppCompatActivity {
         }).start();
 
         checkout.setOnClickListener(v -> showCheckoutDialog());
+        btnback.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
     }
 
     private void calculateTotal() {
