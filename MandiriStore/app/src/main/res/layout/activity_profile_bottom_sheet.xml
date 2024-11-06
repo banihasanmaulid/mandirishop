@@ -5,6 +5,15 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+  <TextView
+      android:gravity="right"
+      android:id="@+id/verison"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="v1.0.0"
+      android:textSize="8dp"
+      android:layout_gravity="center"/>
+
   <ImageView
       android:id="@+id/imgProfile"
       android:layout_width="100dp"
@@ -37,4 +46,5 @@
       android:layout_height="wrap_content"
       android:text="Logout"
       android:layout_marginTop="16dp" />
+
 </LinearLayout>
