@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -59,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         EditText passwordEditText = findViewById(R.id.password);
         EditText emailEditText = findViewById(R.id.email);
         Button registerButton = findViewById(R.id.login_button);
+        ImageView backButton = findViewById(R.id.back);
 
         registerButton.setOnClickListener(v -> {
             String username = usernameEditText.getText().toString();
@@ -82,6 +84,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });*/
         });
+
+        backButton.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
     }
 
     private boolean checkValidation(View v, String username, String password, String email){
