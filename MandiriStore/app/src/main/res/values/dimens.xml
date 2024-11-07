@@ -1,0 +1,28 @@
+<resources>
+    <!-- Margin and padding -->
+    <dimen name="margin_top_24">24dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_bottom_7">7dp</dimen>
+    <dimen name="margin_bottom_20">20dp</dimen>
+    <dimen name="margin_top_16">16dp</dimen>
+    <dimen name="margin_top_8">8dp</dimen>
+    <dimen name="margin_bottom_5">5dp</dimen>
+    <dimen name="margin_bottom_10">10dp</dimen>
+
+    <!-- Layout dimensions -->
+    <dimen name="relative_layout_height">56dp</dimen>
+    <dimen name="image_view_size">50dp</dimen>
+    <dimen name="product_image_height">200dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+
+    <!-- Horizontal padding -->
+    <dimen name="padding_horizontal_12">12dp</dimen>
+</resources>

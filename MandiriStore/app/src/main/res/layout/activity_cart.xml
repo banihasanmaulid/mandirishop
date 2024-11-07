@@ -6,26 +6,26 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/margin_top_24"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/relative_layout_height"
         android:background="@drawable/background"
-        android:padding="8dp">
+        android:padding="@dimen/padding_8">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cart"
+            android:text="@string/title_cart"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_18"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true" />
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/image_view_size"
+            android:layout_height="@dimen/image_view_size"
             android:src="@drawable/ic_back"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true" />
@@ -34,34 +34,34 @@
     <LinearLayout
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/padding_16"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp">
 
         <TextView
             android:id="@+id/totalAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total: $0"
-            android:textSize="20sp"
-            android:layout_marginBottom="7dp" />
+            android:text="@string/total_amount"
+            android:textSize="@dimen/text_size_20"
+            android:layout_marginBottom="@dimen/margin_bottom_7" />
 
         <TextView
             android:id="@+id/totalItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All Cart Items: 0"
-            android:textSize="20sp"
-            android:layout_marginBottom="20dp" />
+            android:text="@string/total_items"
+            android:textSize="@dimen/text_size_20"
+            android:layout_marginBottom="@dimen/margin_bottom_20" />
 
         <TextView
             android:visibility="gone"
             android:id="@+id/selectedItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Items Selected: 0"
-            android:textSize="20sp"
-            android:layout_marginBottom="20dp" />
+            android:text="@string/selected_items"
+            android:textSize="@dimen/text_size_20"
+            android:layout_marginBottom="@dimen/margin_bottom_20" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cartRecyclerView"
@@ -70,10 +70,10 @@
     </LinearLayout>
 
     <Button
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/margin_20"
         android:id="@+id/checkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Checkout"/>
+        android:text="@string/checkout" />
 
 </LinearLayout>

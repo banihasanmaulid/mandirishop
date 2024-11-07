@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Mandiri Store</string>
+    <string name="input_username">Please input username</string>
+    <string name="input_password">Please input password</string>
+    <string name="input_email">Please input email</string>
+    <string name="success_registered">Success Registered</string>
+
+    <string name="invalid_credentials">Invalid username or password</string>
+    <string name="login_success">Login successful</string>
+
+    <string name="please_select_product">Select at least one product</string>
+    <string name="payment_successful">Payment Successfully!</string>
+
+    <string name="product_in_cart">Product is already in the cart</string>
+    <string name="product_added_to_cart">Product successfully added to cart</string>
+
+    <string name="title_cart">Cart</string>
+    <string name="total_amount">Total: $0</string>
+    <string name="total_items">All Cart Items: 0</string>
+    <string name="selected_items">Items Selected: 0</string>
+    <string name="checkout">Checkout</string>
+    <string name="title_detail">Detail</string>
 </resources>

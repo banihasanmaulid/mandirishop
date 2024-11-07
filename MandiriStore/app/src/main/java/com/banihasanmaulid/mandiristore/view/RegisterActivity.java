@@ -26,6 +26,18 @@ import com.banihasanmaulid.mandiristore.viewmodel.ViewModelFactory;
 
 import javax.inject.Inject;
 
+/**
+ * RegisterActivity
+ *
+ * This activity allows users to create a new account by providing a username, password, and email.
+ * It validates the inputs and stores the user information locally in the database upon successful
+ * registration. The class also saves the user's username and email to SharedPreferences.
+ *
+ * Key Features:
+ * - User registration with input validation for username, password, and email.
+ * - Saves the user's credentials to the local database.
+ * - Stores username and email in SharedPreferences for later retrieval.
+ */
 public class RegisterActivity extends AppCompatActivity {
     public static final String TAG = RegisterActivity.class.getSimpleName();
 
@@ -54,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
         Button registerButton = findViewById(R.id.login_button);
         ImageView backButton = findViewById(R.id.back);
 
+        // Register button click action
         registerButton.setOnClickListener(v -> {
             String username = usernameEditText.getText().toString();
             String password = passwordEditText.getText().toString();
@@ -69,23 +82,39 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        // Back button action
         backButton.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
     }
 
+    /**
+     * Validates the registration fields to ensure none are empty.
+     *
+     * @param v The view context for showing toasts
+     * @param username The entered username
+     * @param password The entered password
+     * @param email The entered email
+     * @return true if all fields are filled, otherwise false
+     */
     private boolean checkValidation(View v, String username, String password, String email){
         if (Utils.isEmptyOrNull(username)){
-            Toast.makeText(v.getContext(), "Please input username ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(), getString(R.string.input_username), Toast.LENGTH_SHORT).show();
             return false;
         } else if (Utils.isEmptyOrNull(password)){
-            Toast.makeText(v.getContext(), "Please input password ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(), getString(R.string.input_password), Toast.LENGTH_SHORT).show();
             return false;
         } else if (Utils.isEmptyOrNull(email)){
-            Toast.makeText(v.getContext(), "Please input email ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(), getString(R.string.input_email), Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
 
+    /**
+     * Saves user information locally and stores username and email in SharedPreferences.
+     *
+     * @param v The view context
+     * @param users The user details to register
+     */
     private void localRegister(View v, Users users){
         AppDatabase db = AppDatabase.getInstance(v.getContext());
         new Thread(() -> {
@@ -93,11 +122,18 @@ public class RegisterActivity extends AppCompatActivity {
             ((Activity) v.getContext()).runOnUiThread(() -> {
                 saveUserNameAndEmail(v.getContext(), users.getUsername(), users.getEmail());
                 finish();
-                Toast.makeText(v.getContext(), "Success Registered", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), getString(R.string.success_registered), Toast.LENGTH_SHORT).show();
             });
         }).start();
     }
 
+    /**
+     * Saves the username and email in SharedPreferences.
+     *
+     * @param context The application context
+     * @param username The username to save
+     * @param email The email to save
+     */
     public void saveUserNameAndEmail(Context context, String  username, String email) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
