@@ -28,7 +28,7 @@ public class AppModule {
     @Singleton
     Retrofit provideRetrofit() {
         return new Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL_DEV.toUpperCase()) // Base URL for the API
+                .baseUrl(BuildConfig.BASE_URL) // Base URL for the API
                 .addConverterFactory(GsonConverterFactory.create())  // Gson converter to parse JSON
                 .build();
     }

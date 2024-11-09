@@ -22,7 +22,7 @@ import com.banihasanmaulid.mandiristore.model.Users;
  * The database version is 3, and Room will handle migrations automatically. If a migration is not defined,
  * it will fall back to destructive migration, which deletes all existing data in the database.
  */
-@Database(entities = {Product.class, Users.class}, version = 3)
+@Database(entities = {Product.class, Users.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     // Singleton instance of the database

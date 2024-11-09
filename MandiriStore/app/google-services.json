@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "257384009685",
+    "project_id": "mandiri-store",
+    "storage_bucket": "mandiri-store.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257384009685:android:418ba1bdce9b4ccfe3b75c",
+        "android_client_info": {
+          "package_name": "com.banihasanmaulid.mandiristore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa-t7BxJutjy3ddI5t8cs8yCeCrnhD6cA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,66 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Build and release the APK"
+  lane :build do
+      gradle(
+          task: "assemble",
+          flavor: "development",
+          build_type: "Release",
+          print_command: false,
+          properties: {
+            "android.injected.signing.store.file" => "C:/Users/banih/AndroidStudioProjects/mandirishop/MandiriStore/keystore.jks",
+            "android.injected.signing.store.password" => "bani123",
+            "android.injected.signing.key.alias" => "bani",
+            "android.injected.signing.key.password" => "bani123",
+          }
+        )
+
+        firebase_app_distribution(
+            app: "1:257384009685:android:418ba1bdce9b4ccfe3b75c",
+            groups: "qa",
+            firebase_cli_token: "1//0gCmLtTN1DWS3CgYIARAAGBASNwF-L9IrE6WSOr84t03Je-rO8wXKOAhHprvWShmNaGURd1aNOns3qX-qT4qpCUAuYin_4UeRB9s",
+            release_notes: "Build and release APK Testing"
+        )
+  end
+
+  desc "Deploy to Google Play Store"
+  lane :deploy do
+        gradle(
+          task: "assemble",
+          flavor: "production",
+          build_type: "Release",
+          print_command: false,
+          properties: {
+            "android.injected.signing.store.file" => "C:/Users/banih/AndroidStudioProjects/mandirishop/MandiriStore/keystore.jks",
+            "android.injected.signing.store.password" => "bani123",
+            "android.injected.signing.key.alias" => "bani",
+            "android.injected.signing.key.password" => "bani123",
+          }
+        )
+
+#         supply(track: 'production', apk: './app/build/outputs/apk/release/app-release.apk')
+
+        firebase_app_distribution(
+            app: "1:257384009685:android:418ba1bdce9b4ccfe3b75c",
+            groups: "qa",
+            firebase_cli_token: "1//0gCmLtTN1DWS3CgYIARAAGBASNwF-L9IrE6WSOr84t03Je-rO8wXKOAhHprvWShmNaGURd1aNOns3qX-qT4qpCUAuYin_4UeRB9s",
+            release_notes: "Release APK Production"
+        )
+    end
+end
